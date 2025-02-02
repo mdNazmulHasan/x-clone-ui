@@ -33,6 +33,24 @@ const Post = () => {
             </div>
             <PostInfo />
           </div>
+          {/* Text & media */}
+          <p>
+            The sun dipped below the horizon, casting a warm golden glow across
+            the tranquil lake. Birds chirped softly in the distance, their
+            melodies blending with the gentle rustling of leaves in the evening
+            breeze. A lone fisherman stood at the water's edge, his silhouette
+            framed by the fading light, patiently waiting for a bite. The world
+            seemed to pause, if only for a moment, as nature embraced the quiet
+            transition from day to night. Somewhere nearby, a campfire crackled,
+            its flickering flames dancing in harmony with the stars that began
+            to dot the darkening sky.
+          </p>
+          <Image
+            path="/general/post.jpeg"
+            alt="post"
+            width={600}
+            height={600}
+          />
         </div>
       </div>
     </div>
