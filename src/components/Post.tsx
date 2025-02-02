@@ -23,13 +23,13 @@ const Post = () => {
           />
         </div>
         {/* content */}
-        <div>
+        <div className="flex-1">
           {/* top section */}
-          <div>
+          <div className="flex items-center gap-2 justify-between">
             <div className="flex items-center gap-2 flex-wrap">
-              <h1>nazmul</h1>
-              <span>@mdNazmulHasan</span>
-              <span>1 day ago</span>
+              <h1 className="text-md font-bold">nazmul</h1>
+              <span className="text-textGrey">@mdNazmulHasan</span>
+              <span className="text-textGrey">1 day ago</span>
             </div>
             <PostInfo />
           </div>
