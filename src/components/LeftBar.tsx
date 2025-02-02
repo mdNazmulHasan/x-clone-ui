@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Image from "./Image";
 
 const menuList = [
   {
@@ -73,14 +73,14 @@ const LeftBar = () => {
           href="/"
           className="p-2 hover:bg-[#181818] rounded-full cursor-pointer"
         >
-          <Image src="icons/logo.svg" alt="logo" width={24} height={24} />
+          <Image path="icons/logo.svg" alt="logo" width={24} height={24} />
         </Link>
         <div className="flex flex-col">
           {menuList.map((menu) => (
             <Link href={menu.link} key={menu.id}>
               <div className="p-2 hover:bg-[#181818] rounded-full cursor-pointer flex items-center gap-4">
                 <Image
-                  src={`icons/${menu.icon}`}
+                  path={`icons/${menu.icon}`}
                   alt={menu.name}
                   width={24}
                   height={24}
@@ -94,7 +94,7 @@ const LeftBar = () => {
           href="/"
           className="bg-white text-black p-2 rounded-full font-bold w-12 h-12 items-center justify-center cursor-pointer 2xl:hidden"
         >
-          <Image src="icons/post.svg" alt="post" width={24} height={24} />
+          <Image path="icons/post.svg" alt="post" width={24} height={24} />
         </Link>
         <Link
           href="/"
@@ -106,7 +106,7 @@ const LeftBar = () => {
       <div className="flex items-center justify-between ">
         <div className="flex items-center gap-2">
           <div className="relative w-10 h-10 rounded-full overflow-hidden">
-            <Image src="/general/avatar.png" alt="avatar" fill />
+            <Image path="/general/avatar.png" alt="avatar" width={100} height={100} tr />
           </div>
           <div className="hidden 2xl:flex flex-col ">
             <span className="font-bold ">nazmul</span>
