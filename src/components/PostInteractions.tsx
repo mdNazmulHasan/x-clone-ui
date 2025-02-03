@@ -2,7 +2,7 @@ import React from "react";
 
 const PostInteractions = () => {
   return (
-    <div className="flex items-center justify-between my-2 text-textGrey gap-16">
+    <div className="flex items-center justify-between my-2 text-textGrey gap-4 lg:gap-16">
       <div className="flex items-center justify-between flex-1">
         <div className=" flex items-center gap-2 cursor-pointer group">
           <svg
