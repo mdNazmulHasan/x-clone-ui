@@ -1,9 +1,19 @@
+"use client";
 import React from "react";
 import Image from "./Image";
+import { shareAction } from "@/actions";
 
 const Share = () => {
+  const [media, setMedia] = React.useState<File | null>(null);
+
+  const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setMedia(e.target.files[0]);
+    }
+  };
+
   return (
-    <div className="p-4 flex gap-4">
+    <form className="p-4 flex gap-4" action={shareAction}>
       {/* avatar */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
         <Image
@@ -16,16 +26,31 @@ const Share = () => {
       </div>
       {/* others */}
       <div className="flex-1 flex flex-col gap-4">
-        <input type="text" placeholder="What is happening?!" />
+        <input
+          name="desc"
+          type="text"
+          placeholder="What is happening?!"
+          className="bg-transparent outline-none placeholder-text-textGrey text-xl"
+        />
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex gap-4 flex-wrap">
-            <Image
-              path="/icons/image.svg"
-              alt="image"
-              width={20}
-              height={20}
-              className="cursor-pointer"
+            <input
+              type="file"
+              hidden
+              onChange={handleMediaChange}
+              id="file"
+              name="file"
             />
+            <label htmlFor="file">
+              <Image
+                path="/icons/image.svg"
+                alt="image"
+                width={20}
+                height={20}
+                className="cursor-pointer"
+              />
+            </label>
+
             <Image
               path="/icons/gif.svg"
               alt="image"
@@ -67,7 +92,7 @@ const Share = () => {
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
