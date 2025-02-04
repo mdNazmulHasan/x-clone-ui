@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "./Image";
+import NextJSImage from "next/image";
 import { shareAction } from "@/actions";
 
 const Share = () => {
@@ -11,6 +12,8 @@ const Share = () => {
       setMedia(e.target.files[0]);
     }
   };
+
+  const previewUrl = media ? URL.createObjectURL(media) : "";
 
   return (
     <form className="p-4 flex gap-4" action={shareAction}>
@@ -32,6 +35,17 @@ const Share = () => {
           placeholder="What is happening?!"
           className="bg-transparent outline-none placeholder-text-textGrey text-xl"
         />
+        {previewUrl && (
+          <div className="relative rounded-xl overflow-hidden">
+            <NextJSImage
+              src={previewUrl}
+              alt="preview"
+              layout="responsive"
+              width={600}
+              height={600}
+            />
+          </div>
+        )}
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex gap-4 flex-wrap">
             <input
