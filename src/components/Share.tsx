@@ -3,9 +3,18 @@ import React from "react";
 import Image from "./Image";
 import NextJSImage from "next/image";
 import { shareAction } from "@/actions";
+import ImageEditor from "./ImageEditor";
 
 const Share = () => {
   const [media, setMedia] = React.useState<File | null>(null);
+  const [isEditorOpen, setIsEditorOpen] = React.useState(false);
+  const [settings, setSettings] = React.useState<{
+    type: "original" | "wide" | `square`;
+    sensitive: boolean;
+  }>({
+    type: "original",
+    sensitive: false,
+  });
 
   const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -35,6 +44,7 @@ const Share = () => {
           placeholder="What is happening?!"
           className="bg-transparent outline-none placeholder-text-textGrey text-xl"
         />
+        {/* preview image */}
         {previewUrl && (
           <div className="relative rounded-xl overflow-hidden">
             <NextJSImage
@@ -44,7 +54,22 @@ const Share = () => {
               width={600}
               height={600}
             />
+            <div
+              className="absolute top-2 left-2 bg-black bg-opacity-50 text-white py-1 px-4 rounded-full font-bold text-sm cursor-pointer"
+              onClick={() => setIsEditorOpen(true)}
+            >
+              Edit
+            </div>
           </div>
+        )}
+        {/* editor */}
+        {isEditorOpen && previewUrl && (
+          <ImageEditor
+            onClose={() => setIsEditorOpen(false)}
+            previewUrl={previewUrl}
+            settings={settings}
+            setSettings={setSettings}
+          />
         )}
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex gap-4 flex-wrap">
