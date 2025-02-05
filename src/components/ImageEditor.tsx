@@ -42,7 +42,7 @@ const ImageEditor: React.FC<ImageEditorProps> = ({
             </svg>
             <h1 className="text-xl font-bold">Media Settings</h1>
           </div>
-          <button className="bg-white text-black font-bold px-4 py-2 rounded-full">
+          <button className="bg-white text-black font-bold px-4 py-2 rounded-full" onClick={onClose}>
             Save
           </button>
         </div>
