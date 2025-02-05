@@ -25,7 +25,10 @@ const Share = () => {
   const previewUrl = media ? URL.createObjectURL(media) : "";
 
   return (
-    <form className="p-4 flex gap-4" action={(formData) => shareAction(formData,settings)}>
+    <form
+      className="p-4 flex gap-4"
+      action={(formData) => shareAction(formData, settings)}
+    >
       {/* avatar */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
         <Image
@@ -45,7 +48,7 @@ const Share = () => {
           className="bg-transparent outline-none placeholder-text-textGrey text-xl"
         />
         {/* preview image */}
-        {previewUrl && (
+        {media?.type.includes("image") && previewUrl && (
           <div className="relative rounded-xl overflow-hidden">
             <NextJSImage
               src={previewUrl}
@@ -67,6 +70,23 @@ const Share = () => {
             >
               Edit
             </div>
+            <div
+              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full font-bold text-sm cursor-pointer"
+              onClick={() => setMedia(null)}
+            >
+              X
+            </div>
+          </div>
+        )}
+        {media?.type.includes("video") && previewUrl && (
+          <div className="relative">
+            <video src={previewUrl} controls />
+            <div
+              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full font-bold text-sm cursor-pointer"
+              onClick={() => setMedia(null)}
+            >
+              X
+            </div>
           </div>
         )}
         {/* editor */}
@@ -86,6 +106,7 @@ const Share = () => {
               onChange={handleMediaChange}
               id="file"
               name="file"
+              accept="image/*, video/*"
             />
             <label htmlFor="file">
               <Image
