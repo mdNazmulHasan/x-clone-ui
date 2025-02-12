@@ -19,6 +19,7 @@ const Image = ({ path, width, height, alt, className, tr }: ImageProps) => {
       path={path}
       alt={alt}
       className={className}
+      lqip={{ active: true, quality: 20 }}
       {...(tr
         ? {
             transformation: [

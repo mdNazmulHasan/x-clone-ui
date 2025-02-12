@@ -3,6 +3,7 @@ import Image from "./Image";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
 import { imagekit } from "@/utils";
+import Video from "./Video";
 
 interface FileDetailsResponse {
   width: number;
@@ -24,7 +25,7 @@ const Post = async () => {
       });
     });
   };
-  const fileDetails = await getFileDetails("67a31554432c47641673c22e");
+  const fileDetails = await getFileDetails("67a5cd1a432c476416fbd086");
   console.log("🚀 ~ Post ~ fileDetails:", fileDetails);
   return (
     <div className="p-4 border-y-[1px] border-borderGrey">
@@ -78,12 +79,17 @@ const Post = async () => {
             its flickering flames dancing in harmony with the stars that began
             to dot the darkening sky.
           </p>
-          {fileDetails && (
+          {fileDetails && fileDetails.fileType === "image" ? (
             <Image
               path={fileDetails.filePath}
               alt="post"
               width={fileDetails.width}
               height={fileDetails.height}
+              className={fileDetails.customMetadata.sensitive ? "blur-lg" : ""}
+            />
+          ) : (
+            <Video
+              path={fileDetails.filePath}
               className={fileDetails.customMetadata.sensitive ? "blur-lg" : ""}
             />
           )}
