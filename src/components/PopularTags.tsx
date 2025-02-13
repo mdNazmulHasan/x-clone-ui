@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "./Image";
+import Link from "next/link";
 
 const PopularTags = () => {
   return (
@@ -50,24 +51,7 @@ const PopularTags = () => {
         <h2 className="text-textGreyLight font-bold">Open AI</h2>
         <span className="text-textGrey text-sm">20k posts</span>
       </div>
-      {/* topics */}
-      <div>
-        <div className="flex items-center justify-between">
-          <span className="text-textGrey text-sm">Technology . Trending</span>
-          <Image path="icons/infoMore.svg" alt="info" width={16} height={16} />
-        </div>
-        <h2 className="text-textGreyLight font-bold">Open AI</h2>
-        <span className="text-textGrey text-sm">20k posts</span>
-      </div>
-      {/* topics */}
-      <div>
-        <div className="flex items-center justify-between">
-          <span className="text-textGrey text-sm">Technology . Trending</span>
-          <Image path="icons/infoMore.svg" alt="info" width={16} height={16} />
-        </div>
-        <h2 className="text-textGreyLight font-bold">Open AI</h2>
-        <span className="text-textGrey text-sm">20k posts</span>
-      </div>
+     <Link href="/" className="text-iconBlue">Show More</Link>
     </div>
   );
 };
