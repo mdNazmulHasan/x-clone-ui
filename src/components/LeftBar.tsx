@@ -91,13 +91,13 @@ const LeftBar = () => {
           ))}
         </div>
         <Link
-          href="/"
+          href="/compose/post"
           className="bg-white text-black p-2 rounded-full font-bold w-12 h-12 items-center justify-center cursor-pointer 2xl:hidden"
         >
           <Image path="icons/post.svg" alt="post" width={24} height={24} />
         </Link>
         <Link
-          href="/"
+          href="/compose/post"
           className="hidden 2xl:block bg-white text-black p-2 rounded-full font-bold py-2 px-20 cursor-pointer"
         >
           Post
